@@ -1,4 +1,4 @@
-(function () {
+$(function () {
   const INPUT = new Image(),
         CVS = $('#output').get(0),
         CTX = CVS.getContext('2d'),
@@ -211,4 +211,4 @@
       lnk.fireEvent('onclick');
     }
   });
-})();
+});
