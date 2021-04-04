@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>contour</title>
+		<link rel="stylesheet" type="text/css" href="lib/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="lib/jquery.min.js" type="text/javascript"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+		<script src="js/script.js" type="module"></script>
+	</head>
+	<body>
+		<canvas id="output"></canvas>
+		<div class="controls">
+
+			<div class="flex">
+				<div style="flex-grow: 2;">
+					<input name="input-file" id="input-file" accept="image/*" value="Upload Heightmap" type="file" />
+				</div>
+				<div>
+					<input name="submit-upload" id="submit-upload" value="Upload" type="button" disabled />
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+			<div data-role="rangeslider">
+			  <label for="input-elev-min">Elevation Range:</label>
+			  <input name="input-elev-min" id="input-elev-min" min="-1000" max="10000" value="-15" type="range" />
+			  <label for="input-elev-max"></label>
+			  <input name="input-elev-max" id="input-elev-max" min="-1000" max="10000" value="49" type="range" />
+			</div>
+			<div>
+			  <label for="input-step">Index Step:</label>
+			  <input name="input-step" id="input-step" min="10" max="10000" value="20" type="range" />
+			</div>
+			<div>
+			  <label for="input-count">Intervals:</label>
+			  <input name="input-count" id="input-count" min="1" max="10" value="5" type="range" />
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="flex">
+				<div>
+					<label for="input-count-color">Index Color:</label>
+					<input name="input-count-color" id="input-count-color" value="#695744" type="color" />
+				</div>
+				<div>
+				  <label for="input-step-color">Interval Color:</label>
+				  <input name="input-step-color" id="input-step-color" value="#a87c4f" type="color" />
+				</div>
+				<div>
+				  <label for="input-sea-color">Sea Level Color:</label>
+				  <input name="input-sea-color" id="input-sea-color" value="#46838b" type="color" />
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="flex">
+				<div style="flex-grow: 2;">
+					<label for="input-auto-update">Update Automatically</label>
+					<input name="input-auto-update" id="input-auto-update" type="checkbox" checked />
+				</div>
+				<div style="display: flex; align-items: center; gap: 0.5em;">
+					<span>after</span>
+					<input name="input-update-delay" id="input-update-delay" min="0" value="0.5" type="number" />
+					<span>second<span id="delay-unit-plural">s</span></span>
+				</div>
+			</div>
+			<div>
+				<label for="input-transparent">Transparent</label>
+				<input name="input-transparent" id="input-transparent" type="checkbox" />
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="flex">
+				<div>
+					<input name="submit-update" id="submit-update" value="Update" type="button" />
+				</div>
+				<div>
+					<input name="submit-download" id="submit-download" value="Download" type="button" />
+				</div>
+			</div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="map-progress-container">
+			<progress id="map-progress" value="0" max="100" style="display: none;"> 0% </progress>
+		</div>
+	</body>
+</html>

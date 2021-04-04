@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+}
+
+#output {
+  max-width: 50%;
+}
+
+.controls {
+  width: 50%;
+  margin-top: 1em;
+  float: right;
+}
+.controls > * {
+  padding: 0 1em;
+}
+
+.divider {
+  height: 1em;
+}
+
+.flex {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.flex > * {
+  flex: 1;
+}
+
+.map-progress-container {
+  width: 100%;
+  text-align: center;
+}
+.map-progress-container > progress {
+  width: 90%;
+}
